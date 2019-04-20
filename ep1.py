@@ -58,7 +58,13 @@ def main():
     game_over = False
     while not game_over:
         cenario_atual = cenarios[nome_cenario_atual]
-
+        print(cenario_atual['titulo'])
+        barreira = '-' * len(cenario_atual['titulo'])
+        print(barreira)
+        descricao_atual = cenario_atual['descricao']
+        print(descricao_atual)
+        
+        
         # Aluno A: substitua este comentário pelo código para imprimir 
         # o cenário atual.
 
