@@ -16,10 +16,12 @@ def carregar_cenarios():
         },
         "andar professor": {
             "titulo": "Andar do desespero",
-            "descricao": "Voce chegou ao andar da sala do seu professor",
+            "descricao": "Voce chegou ao andar da sala do seu professor e avistou uma luz estranha no fim do corredor",
             "opcoes": {
                 "inicio": "Tomar o elevador para o saguao de entrada",
-                "professor": "Falar com o professor"
+                "professor": "Falar com o professor",
+                "explorar": "Ir até a luz"
+                
             }
         },
         "professor": {
@@ -34,6 +36,16 @@ def carregar_cenarios():
             "descricao": "Voce esta na biblioteca",
             "opcoes": {
                 "inicio": "Voltar para o saguao de entrada"
+            }
+        },
+        "explorar": {
+            "titulo": "Shazam",
+            "descricao": "Voce achou o a maquina de teleporte!",
+            "opcoes": {
+                    "inicio": "Teleportar para o saguao de entrada",
+                    "andar professor": "Teleportar para o andar do professor",
+                    "professor": "Teleportar para a sala do professor",
+                    "biblioteca": "Teleportar para a biblioteca"
             }
         }
     }
@@ -72,7 +84,8 @@ def main():
         else:
             print("Qual seu próximo movimento?")
             for x, y in opcoes.items():
-                print("{0}: {1}".format(x,y))
+                if nome_cenario_atual != "explorar":
+                    print("{0}: {1}".format(x,y))
                 # Imprime as opções de escolha para o jogador
                 
             escolha = input("O que fará a seguir? ")
