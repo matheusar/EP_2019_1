@@ -1,8 +1,8 @@
 # EP 2019-1: Escape Insper
 #
 # Alunos: 
-# - aluno A: Fulano da Silva, fulanos@insper.edu.br
-# - aluno B: Sicrano de Almeida, sicranoa1@insper.edu.br
+# - aluno A: Matheus Amaral Ricardo, matheusar@al.insper.edu.br
+# - aluno B: Leonardo Alvarez, leonardosa2@al.insper.edu.br
 
 def carregar_cenarios():
     cenarios = {
@@ -63,31 +63,26 @@ def main():
         print(barreira)
         descricao_atual = cenario_atual['descricao']
         print(descricao_atual)
+        # Imprime o nome do cenário e sua descrição
         
-        
-        # Aluno A: substitua este comentário pelo código para imprimir 
-        # o cenário atual.
-
         opcoes = cenario_atual['opcoes']
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
         else:
-            print("Escolha seu próximo movimento")
+            print("Qual seu próximo movimento?")
             for x, y in opcoes.items():
                 print("{0}: {1}".format(x,y))
-
-            # Aluno B: substitua este comentário e a linha abaixo pelo código
-            # para pedir a escolha do usuário.
-            escolha = input("O que fará a seguir?")
-
-
+                # Imprime as opções de escolha para o jogador
+                
+            escolha = input("O que fará a seguir? ")
             if escolha in opcoes:
                 nome_cenario_atual = escolha
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
-
+                # Jogador vai para o cenário que escolheu ou morre se 
+                # escolher um cenário inexistente
     print("Você morreu!")
 
 
