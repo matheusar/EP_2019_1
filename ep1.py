@@ -71,20 +71,14 @@ def carregar_cenarios():
             }
         },
         "fugir": {
-            "titulo": "Parabens",
-            "descricao": "Voce vonseguiu escapar com vida!",
-            "opcoes": {
-                    "gg": "FIM DE JOGO"
-                    
-            }
+            "titulo": "Parabens!!!",
+            "descricao": "Voce conseguiu escapar com vida!",
+            "opcoes": {}
         },
         "ficar": {
             "titulo": "Que pena!",
             "descricao": "Voce morreu.",
-            "opcoes": {
-                    "gg": "FIM DE JOGO"
-                    
-            }
+            "opcoes": {}
         }
     }
     nome_cenario_atual = "inicio"
@@ -117,8 +111,10 @@ def main():
         # Imprime o nome do cenário e sua descrição
         
         opcoes = cenario_atual['opcoes']
-        if len(opcoes) == 0:
+        if len(opcoes) == 0 and nome_cenario_atual != 'fugir':
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
+            game_over = True
+        elif nome_cenario_atual == 'fugir':
             game_over = True
         else:
             print("Qual seu próximo movimento?")
@@ -135,14 +131,19 @@ def main():
                     armadura += 1
                 elif escolha == "professor" and armadura > 0:
                     nome_cenario_atual = "fuga"
+                elif escolha == "ficar":
+                    game_over = True
+                
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
                 # Jogador vai para o cenário que escolheu ou morre se 
                 # escolher um cenário inexistente
-    print("Você morreu!")
+    if escolha != 'fugir':
+        print("Você morreu!")
 
-
+    else:
+        print
 # Programa principal.
 if __name__ == "__main__":
     main()
